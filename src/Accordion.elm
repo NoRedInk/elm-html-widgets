@@ -49,12 +49,17 @@ Example Usage:
         = NoOp
         | SetExpanded Int Bool
 
-    actions =
-        Signal.mailbox NoOp
-
     -- You could keep track of `expanded` in a separate data structure, if that
     -- were desirable, by supplying an appropriate `setExpanded` and
-    -- `getExpanded` for the `Accordion`
+    -- `getExpanded` for the `Accordion`, and an appropriate `update` method
+    type alias Entry =
+        { id : Int
+        , title : String
+        , synopsis : String
+        , expanded : Bool
+        }
+
+    sampleEntry : Entry
     sampleEntry =
         { id = 1
         , title = "Walden"
@@ -62,14 +67,30 @@ Example Usage:
         , expanded = True
         }
 
-    accordion =
+    update : Action -> List Entry -> List Entry
+    update action model =
+        case action of
+            NoOp ->
+                model
+
+            SetExpanded id expanded ->
+                List.map (\entry ->
+                    if entry.id == id
+                        then { entry | expanded <- expanded }
+                        else entry
+                ) model
+
+    accordion : Signal.Address Action -> Accordion Entry
+    accordion address =
         { viewHeader = .title >> Html.text
         , viewPanel = .synopsis >> Html.text
-        , setExpanded = \expanded {id} -> Signal.message actions.address (SetExpanded id expanded)
+        , setExpanded = \expanded {id} -> Signal.message address (SetExpanded id expanded)
         , getExpanded = .expanded
         }
 
-    Accordion.view accordion [ sampleEntry ]
+    view : Signal.Address Action -> List Entry -> Html
+    view address model =
+        Accordion.view (accordion address) model
 -}
 view : Accordion entry -> List entry -> Html
 view accordion entries =
