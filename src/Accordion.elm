@@ -1,4 +1,4 @@
-module Accordion (Accordion, view) where
+module Accordion (Accordion, view, originalView) where
 
 
 import Html exposing (Html, Attribute, div)
@@ -144,3 +144,23 @@ view accordion entries =
 role : String -> Attribute
 role =
     attribute "role"
+
+
+{-| An implementation of the original API, for easy transition to the new API.
+-}
+originalView :
+    (entry -> Html) ->
+    (entry -> Html) ->
+    (Bool -> entry -> Message) ->
+    List (entry, Bool) -> Html
+originalView viewHeader viewPanel setExpanded list =
+    let
+        accordion =
+            { viewHeader = viewHeader << fst
+            , viewPanel = viewPanel << fst
+            , setExpanded = \expanded entry -> setExpanded expanded (fst entry) 
+            , getExpanded = snd
+            }
+
+    in
+        view accordion list
