@@ -1,10 +1,11 @@
 {
     "version": "1.0.0",
-    "summary": "Reusable widgets for elm-html",
+    "summary": "Tests for elm-html-widgets",
     "repository": "https://github.com/NoRedInk/elm-html-widgets.git",
     "license": "BSD-3-Clause",
     "source-directories": [
-        "src"
+        "../src",
+        ".."
     ],
     "exposed-modules": [],
     "dependencies": {

@@ -1,0 +1,38 @@
+{
+  "name": "elm-html-widgets",
+  "version": "1.0.0",
+  "description": "Reusable widgets for elm-html",
+  "main": "",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "3.3.0",
+    "elm": "2.0.0",
+    "karma": "0.13.11",
+    "karma-chai": "0.1.0",
+    "karma-mocha": "0.2.0",
+    "karma-phantomjs-launcher": "0.2.1",
+    "mocha": "2.3.3",
+    "phantomjs": "1.9.18"
+  },
+  "scripts": {
+    "test": "cd test && ../node_modules/.bin/elm-package install --yes && ../node_modules/.bin/elm-make TestAccordion.elm --yes --output ../build/TestAccordion.js && ../node_modules/.bin/karma start karma.conf.js --single-run",
+    "travis-test": "cd test && ../node_modules/.bin/elm-package install --yes && ../node_modules/.bin/elm-make TestAccordion.elm --yes --output ../build/TestAccordion.js && ../node_modules/.bin/karma start karma.conf.js --single-run --no-colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoRedInk/elm-html-widgets.git"
+  },
+  "keywords": [
+    "elm",
+    "elm-html"
+  ],
+  "author": "NoRedInk",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/NoRedInk/elm-html-widgets/issues"
+  },
+  "homepage": "https://github.com/NoRedInk/elm-html-widgets#readme"
+}

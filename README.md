@@ -1,6 +1,8 @@
-# Accordion View
+# elm-html-widgets
 
-An Elm View for an Accordion widget.
+Reusable widgets for elm-html
+
+[![](https://travis-ci.org/NoRedInk/elm-html-widgets.svg)](https://travis-ci.org/NoRedInk/elm-html-widgets)
 
 ---
 [![NoRedInk](https://cloud.githubusercontent.com/assets/1094080/9069346/99522418-3a9d-11e5-8175-1c2bfd7a2ffe.png)][team]
