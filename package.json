@@ -18,8 +18,8 @@
     "phantomjs": "1.9.18"
   },
   "scripts": {
-    "test": "cd test && ../node_modules/.bin/elm-package install --yes && ../node_modules/.bin/elm-make TestAccordion.elm --yes --output ../build/TestAccordion.js && ../node_modules/.bin/karma start karma.conf.js --single-run",
-    "travis-test": "cd test && ../node_modules/.bin/elm-package install --yes && ../node_modules/.bin/elm-make TestAccordion.elm --yes --output ../build/TestAccordion.js && ../node_modules/.bin/karma start karma.conf.js --single-run --no-colors"
+    "test": "cd test && ../node_modules/.bin/elm-package install --yes && ../node_modules/.bin/elm-make TestDropdown.elm --yes --output ../build/TestDropdown.js && ../node_modules/.bin/karma start karma.conf.js --single-run",
+    "travis-test": "cd test && ../node_modules/.bin/elm-package install --yes && ../node_modules/.bin/elm-make TestDropdown.elm --yes --output ../build/TestDropdown.js && ../node_modules/.bin/karma start karma.conf.js --single-run --no-colors"
   },
   "repository": {
     "type": "git",
