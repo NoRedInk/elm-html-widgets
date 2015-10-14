@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
-    "summary": "An Elm View for an Accordion widget.",
-    "repository": "https://github.com/NoRedInk/elm-accordion-view.git",
+    "summary": "Reusable widgets for elm-html",
+    "repository": "https://github.com/NoRedInk/elm-html-widgets.git",
     "license": "BSD-3-Clause",
     "source-directories": [
         "src"
