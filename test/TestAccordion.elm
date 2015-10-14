@@ -2,7 +2,7 @@ module TestAccordion where
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Accordion
+import Widget.Accordion as (Accordion)
 import Signal
 import StartApp.Simple as StartApp
 

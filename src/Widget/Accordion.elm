@@ -1,4 +1,4 @@
-module Accordion (Accordion, view, originalView) where
+module Widget.Accordion (Accordion, view, originalView) where
 
 
 import Html exposing (Html, Attribute, div)
@@ -158,7 +158,7 @@ originalView viewHeader viewPanel setExpanded list =
         accordion =
             { viewHeader = viewHeader << fst
             , viewPanel = viewPanel << fst
-            , setExpanded = \expanded entry -> setExpanded expanded (fst entry) 
+            , setExpanded = \expanded entry -> setExpanded expanded (fst entry)
             , getExpanded = snd
             }
 
