@@ -16,7 +16,7 @@ type alias AccordionEntry =
 
 
 main =
-  StartApp.start { model = entries, view = view, update = update }
+    StartApp.start { model = entries, view = view, update = update }
 
 
 entries : List AccordionEntry
@@ -45,12 +45,12 @@ type Action
 
 
 update action entries =
-  case action of
-    NoOp ->
-        entries
+    case action of
+        NoOp ->
+            entries
 
-    Expand entry ->
-        List.map (expandIf (\{id} -> id == entry.id)) entries
+        Expand entry ->
+            List.map (expandIf (\{id} -> id == entry.id)) entries
 
 
 expandIf : (AccordionEntry -> Bool) -> AccordionEntry -> AccordionEntry
