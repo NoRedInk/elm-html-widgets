@@ -4,21 +4,55 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Accordion
 import Signal
+import StartApp.Simple as StartApp
 
 
-accordionOpts =
-    { viewHeader = text
-    , viewPanel = text
-    , setExpanded = (\_ entry -> Signal.message dummyMailbox.address entry)
-    , getExpanded = (\_ -> True)
+type alias AccordionEntry =
+    { id : Int
+    , expanded : Bool
+    , heading : String
+    , body : String
     }
 
 
-dummyMailbox : Signal.Mailbox String
-dummyMailbox =
-    Signal.mailbox ""
-
-
 main =
-    Accordion.view accordionOpts [ "foo" ]
-        |> Signal.constant
+  StartApp.start { model = entries, view = view, update = update }
+
+
+entries : List AccordionEntry
+entries =
+    [ { id = 0, heading = "Top Thing", body = "Top Content", expanded = False }
+    , { id = 1, heading = "Middle Thing", body = "Middle Content", expanded = True }
+    , { id = 2, heading = "Bottom Thing", body = "Bottom Content", expanded = False }
+    ]
+
+
+view address entries =
+    let
+        accordionOpts =
+            { viewHeader = .heading >> text
+            , viewPanel = .body >> text
+            , setExpanded = (\expanded entry -> Signal.message address (Expand entry))
+            , getExpanded = .expanded
+            }
+    in
+        Accordion.view accordionOpts entries
+
+
+type Action
+    = NoOp
+    | Expand AccordionEntry
+
+
+update action entries =
+  case action of
+    NoOp ->
+        entries
+
+    Expand entry ->
+        List.map (expandIf (\{id} -> id == entry.id)) entries
+
+
+expandIf : (AccordionEntry -> Bool) -> AccordionEntry -> AccordionEntry
+expandIf predicate entry =
+    { entry | expanded <- predicate entry }
