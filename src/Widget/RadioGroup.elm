@@ -15,11 +15,10 @@ type alias RadioGroup entry =
     }
 
 {-
-    fieldChecked should be a predicate operating on the field of the radio button.
-    radioButtonList should be a List of tuples, with the radio button label text
-        as the first element in the tuple, the desired id of the radio button as
-        the second element, and with the field the radio button
-        corresponds to as the third.
+    Creates a div containing radio buttons.
+
+    Provide a radio group record with methods operating on entries, and
+    a list of entries, for which radio buttons will be made.
 -}
 view : RadioGroup entry -> List entry -> Html
 view radioGroup radioButtonList =
