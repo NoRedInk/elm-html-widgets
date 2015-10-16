@@ -6,6 +6,7 @@ import Html.Attributes exposing (class, classList, attribute)
 import Html.Events exposing (on)
 import Signal exposing (Message)
 import Json.Decode
+import Util exposing ((=>), role)
 
 
 {-| Functions which indicate how to display your `entry` type as an
@@ -132,18 +133,6 @@ view accordion entries =
             , attribute "aria-live" "polite"
             ]
             (List.map viewEntry entries)
-
-
-{- Convenience for making tuples. Looks nicer in conjunction with classList. -}
-(=>) : a -> b -> (a, b)
-(=>) =
-    (,)
-
-
-{- Convenience for defining role attributes, e.g. <div role="tabpanel"> -}
-role : String -> Attribute
-role =
-    attribute "role"
 
 
 {-| An implementation of the original API, for easy transition to the new API.
