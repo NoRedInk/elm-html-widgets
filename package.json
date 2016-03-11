@@ -9,7 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "3.3.0",
-    "elm": "2.0.0",
+    "elm": "0.16.0",
     "karma": "0.13.11",
     "karma-chai": "0.1.0",
     "karma-mocha": "0.2.0",
