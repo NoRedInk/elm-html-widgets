@@ -8,3 +8,15 @@ Reusable widgets for elm-html
 [![NoRedInk](https://cloud.githubusercontent.com/assets/1094080/9069346/99522418-3a9d-11e5-8175-1c2bfd7a2ffe.png)][team]
 [team]: http://noredink.com/about/team
 
+# Development
+
+```
+elm package install
+npm install
+```
+
+# Testsuite
+
+```
+npm test
+```
